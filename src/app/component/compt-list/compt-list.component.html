@@ -1,5 +1,8 @@
-<app-compt-form></app-compt-form>
-
-<p>
-  compt-list works!
-</p>
+<div class="row">
+    <div class="col-md-6">
+        <app-compt-form (comptAdded)="addCompt($event)"></app-compt-form>
+    </div>
+    <div class="col-md-6 jumbotron bg-dark">
+        <app-compt class="col-md-6 p-2" *ngFor="let compt of compts" [compt]="compt"></app-compt>
+    </div>
+</div>

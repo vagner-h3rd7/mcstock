@@ -9,6 +9,8 @@ import { ComptComponent } from './component/compt/compt.component';
 import { ComptFormComponent } from './component/compt-form/compt-form.component';
 import { ComptListComponent } from './component/compt-list/compt-list.component';
 
+import { DataService } from './services/data.service'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,9 @@ import { ComptListComponent } from './component/compt-list/compt-list.component'
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    DataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -9,7 +9,8 @@ import { ComptComponent } from './component/compt/compt.component';
 import { ComptFormComponent } from './component/compt-form/compt-form.component';
 import { ComptListComponent } from './component/compt-list/compt-list.component';
 
-import { DataService } from './services/data.service'
+import { DataService } from './services/data.service';
+import { ComptSearchComponent } from './component/compt-search/compt-search.component'
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { DataService } from './services/data.service'
     HeaderComponent,
     ComptComponent,
     ComptFormComponent,
-    ComptListComponent
+    ComptListComponent,
+    ComptSearchComponent
   ],
   imports: [
     BrowserModule,

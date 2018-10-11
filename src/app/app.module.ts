@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './component/header/header.component';
 import { ComptComponent } from './component/compt/compt.component';
 import { ComptFormComponent } from './component/compt-form/compt-form.component';
+import { ComptListComponent } from './component/compt-list/compt-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ComptComponent,
-    ComptFormComponent
+    ComptFormComponent,
+    ComptListComponent
   ],
   imports: [
     BrowserModule,

@@ -9,14 +9,14 @@ import { DataService } from '../../services/data.service';
   styleUrls: ['./compt.component.css']
 })
 export class ComptComponent implements OnInit {
-  @Input('compt') compt:Compt;
+  @Input('compt') compt: Compt;
 
   constructor(public dataService: DataService) { }
 
   ngOnInit() {
   }
 
-  removeCompt(compt: Compt){
+  removeCompt(compt: Compt) {
     const response = confirm('Tem certeza de que deseja excluir?');
     if (response) {
       this.dataService.removeCompt(compt);

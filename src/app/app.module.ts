@@ -11,7 +11,7 @@ import { ComptListComponent } from './component/compt-list/compt-list.component'
 
 import { DataService } from './services/data.service';
 import { ComptSearchComponent } from './component/compt-search/compt-search.component';
-import { AppRoutingModule } from './app-routing.module'
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [

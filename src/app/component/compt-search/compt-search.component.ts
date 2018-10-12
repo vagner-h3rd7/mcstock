@@ -9,8 +9,8 @@ import { DataService } from '../../services/data.service';
   styleUrls: ['./compt-search.component.css']
 })
 export class ComptSearchComponent implements OnInit {
-  @Input('compt') compt:Compt;
-  
+  //@Input('compt') compt: Compt;
+
 
   constructor(public dataService: DataService) { }
 

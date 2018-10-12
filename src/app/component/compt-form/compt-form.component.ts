@@ -9,13 +9,13 @@ import { Compt } from '../../models/compt';
 })
 export class ComptFormComponent implements OnInit {
 
-  brand: string; 
-  model: string; 
-  motherboard: string; 
+  brand: string;
+  model: string;
+  motherboard: string;
   processor: string;
-  memory_ram: string; 
+  memory_ram: string;
   hard_disck: string;
-  uri_photo: string; 
+  uri_photo: string;
 
   @Output() comptAdded = new EventEmitter<Compt>();
 
@@ -26,13 +26,13 @@ export class ComptFormComponent implements OnInit {
 
   addCompt() {
     this.comptAdded.emit({
-      brand: this.brand, 
-      model: this.model, 
-      motherboard: this.motherboard, 
+      brand: this.brand,
+      model: this.model,
+      motherboard: this.motherboard,
       processor: this.processor,
-      memory_ram: this.memory_ram, 
+      memory_ram: this.memory_ram,
       hard_disck: this.hard_disck,
-      uri_photo: this.uri_photo, 
+      uri_photo: this.uri_photo,
 	    hide: true
     })
 

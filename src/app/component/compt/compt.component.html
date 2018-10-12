@@ -10,7 +10,7 @@
         </div>
         <div class="card-body" [hidden]="compt.hide">
             <div><strong>
-                <p>Marca: stron {{ compt.brand | uppercase }}, Modelo: {{ compt.model | uppercase }}</p>
+                <p>Marca: {{ compt.brand | uppercase }}, Modelo: {{ compt.model | uppercase }}</p>
                 <p>Placa-Mãe: {{ compt.motherboard | uppercase }}</p>
                 <p>Processador: {{ compt.processor | uppercase }}</p>
                 <p>M-RAM: {{ compt.memory_ram | uppercase }}, HD: {{ compt.hard_disck | uppercase }}</p>

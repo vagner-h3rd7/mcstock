@@ -10,7 +10,8 @@ import { ComptFormComponent } from './component/compt-form/compt-form.component'
 import { ComptListComponent } from './component/compt-list/compt-list.component';
 
 import { DataService } from './services/data.service';
-import { ComptSearchComponent } from './component/compt-search/compt-search.component'
+import { ComptSearchComponent } from './component/compt-search/compt-search.component';
+import { AppRoutingModule } from './app-routing.module'
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ComptSearchComponent } from './component/compt-search/compt-search.comp
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AppRoutingModule
   ],
   providers: [
     DataService

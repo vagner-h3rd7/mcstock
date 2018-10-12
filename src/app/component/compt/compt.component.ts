@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { Compt } from '../../models/compt';
-import { DataService } from './../../services/data.service';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-compt',

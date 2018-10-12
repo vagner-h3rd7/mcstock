@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { Compt } from '../../models/compt';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-compt-search',
@@ -6,8 +9,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./compt-search.component.css']
 })
 export class ComptSearchComponent implements OnInit {
+  @Input('compt') compt:Compt;
+  
 
-  constructor() { }
+  constructor(public dataService: DataService) { }
 
   ngOnInit() {
   }

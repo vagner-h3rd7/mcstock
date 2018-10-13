@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { Compt } from '../../models/compt';
+import { COMPTS } from './../../models/e-compts';
 
 @Component({
   selector: 'app-compt-form',
@@ -9,6 +10,7 @@ import { Compt } from '../../models/compt';
 })
 export class ComptFormComponent implements OnInit {
 
+  id: number;
   brand: string;
   model: string;
   motherboard: string;

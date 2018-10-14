@@ -18,6 +18,7 @@ export class ComptComponent implements OnInit {
 
   removeCompt(compt: Compt) {
     const response = confirm('Tem certeza de que deseja excluir?');
+    
     if (response) {
       this.dataService.removeCompt(compt);
     }

@@ -1,15 +1,11 @@
-import { COMPTS } from '../models/e-compts';
 import { Injectable } from '@angular/core';
 
 import { Compt } from '../models/compt';
+import { COMPTS } from '../models/e-compts';
 
 @Injectable({ providedIn: 'root' })
 export class DataService {
-
-  // exemplo
-  compts: Compt[] = COMPTS;
-  
-
+  compts: Compt[];
 
   constructor() {
     this.compts = [];
@@ -17,7 +13,8 @@ export class DataService {
 
   getCompt(): Compt[] {
     if (localStorage.getItem('compts') === null) {
-      this.compts = [];
+      this.compts = COMPTS;
+      localStorage.setItem('compts', JSON.stringify(this.compts));
     } else {
       this.compts = JSON.parse(localStorage.getItem('compts'));
     }
@@ -26,16 +23,8 @@ export class DataService {
 
   addCompt(compt: Compt): void {
     this.compts.unshift(compt);
-    let compts;
-    if (localStorage.getItem('compts') === null) {
-      compts = [];
-      compts.unshift(compts);
-      localStorage.setItem('compts', JSON.stringify(compts));
-    } else {
-      compts = JSON.parse(localStorage.getItem('compts'));
-      compts.unshift(compt);
-      localStorage.setItem('compts', JSON.stringify(compts));
-    }
+   
+      localStorage.setItem('compts', JSON.stringify(this.compts));
 
   }
 
@@ -43,9 +32,10 @@ export class DataService {
     for (let i = 0; this.compts.length; i++ ) {
       if (compt === this.compts[i]) {
         this.compts.splice(i, 1);
-        localStorage.setItem('compts', JSON.stringify(this.compts));
+        break;
       }
     }
+    localStorage.setItem('compts', JSON.stringify(this.compts));
   }
 
 }

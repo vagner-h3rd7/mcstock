@@ -28,6 +28,7 @@ export class ComptFormComponent implements OnInit {
 
   addCompt() {
     this.comptAdded.emit({
+      id: this.id,
       brand: this.brand,
       model: this.model,
       motherboard: this.motherboard,

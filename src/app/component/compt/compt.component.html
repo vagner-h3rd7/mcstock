@@ -3,23 +3,23 @@
         <div class="card-header">
             <h4>PC: {{ compt.brand }}, {{ compt.model }}</h4>
             <div class="float-right">
-            <a href="" class="btn btn-info" (click)="compt.hide = !compt.hide">
+            <button href="" class="btn btn-info" (click)="compt.hide = !compt.hide">
                 Detalhes
-            </a>
+            </button>
         </div>
         </div>
         <div class="card-body" [hidden]="compt.hide">
             <div><strong>
-                <p>Marca: {{ compt.brand | uppercase }}, Modelo: {{ compt.model | uppercase }}</p>
+                <p>Marca: {{ compt.id | uppercase }}, Marca: {{ compt.brand | uppercase }}, Modelo: {{ compt.model | uppercase }}</p>
                 <p>Placa-Mãe: {{ compt.motherboard | uppercase }}</p>
                 <p>Processador: {{ compt.processor | uppercase }}</p>
                 <p>M-RAM: {{ compt.memory_ram | uppercase }}, HD: {{ compt.hard_disck | uppercase }}</p>
-                <p>Foto: {{ compt.uri_photo | uppercase }}</p></strong>
+                <p>Foto: {{ compt.uri_photo }}</p></strong>
             </div>
             <div class="float-right">
-                <a href="" class="btn btn-danger" (click)="removeCompt(compt)">
+                <button href="" class="btn btn-danger" (click)="removeCompt(compt)">
                  Deletar
-                </a>
+                </button>
             </div>
         </div>
     </div>

@@ -1,14 +1,23 @@
 <h3>Pesquisa</h3>
 <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="Pesquisa..." aria-label="Search">
+    <input (change)="onSearch($event)" class="form-control mr-sm-2" type="search" placeholder="Pesquisa..." aria-label="Search">
     <button class="btn btn-outline-primary" type="submit">Buscar</button>
 </form>
+<br>
 
-<div>
-  <strong>
-    <p>Marca: {{ compt.brand | uppercase }}, Modelo: {{ compt.model | uppercase }}</p>
-    <p>Placa-Mãe: {{ compt.motherboard | uppercase }}</p>
-    <p>Processador: {{ compt.processor | uppercase }}</p>
-    <p>M-RAM: {{ compt.memory_ram | uppercase }}, HD: {{ compt.hard_disck | uppercase }}</p>
-    <p>Foto: {{ compt.uri_photo | uppercase }}</p></strong>
+<div class="jumbotron" *ngIf="searchString">
+    <div *ngFor="let compt of filteredCompts">
+        <div class="row">
+        <div class="col-2">
+            <img class="img-fluid rounded float-left" src="{{ compt.uri_photo }}">
+        </div>
+        <div class="col">
+            <p>Id: {{ compt.id }}, Marca: {{ compt.brand }}, Modelo: {{ compt.model }} <br />
+             Placa-Mãe: {{ compt.motherboard }}<br />
+             Processador: {{ compt.processor }}, M-RAM: {{ compt.memory_ram }}, HD: {{ compt.hard_disck }}</p>
+        </div>
+    </div>
+        <p>...</p>
+        <hr />
+    </div>
 </div>

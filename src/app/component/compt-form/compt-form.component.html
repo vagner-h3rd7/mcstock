@@ -11,9 +11,11 @@
     <div>
         <div class="form-row">
             <div class="form-group col-11">
-                <label for="uri_photo">Foto:</label>
-                <img src="{{ uri_photo }}" type="file" class="img-thumbnail rounded float-left btn" name="uri_photo">
-                <button type="file" class="btn btn-sm btn-secondary">enviar</button>
+                <label for="uri_photo">
+                    Foto:
+                    <input id="uri_photo" style="display: none;" type="file" (change)="changeImage($event,value)"/>
+                    <img type="file" style="width: 150px; height: 150px;" name="uri_photo" class="img-thumbnail rounded float-left" src="{{ uri_photo }}">
+                </label>
             </div>
     
         </div>

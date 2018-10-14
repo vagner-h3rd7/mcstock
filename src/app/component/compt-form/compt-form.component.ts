@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { Compt } from '../../models/compt';
-import { COMPTS } from './../../models/e-compts';
 
 @Component({
   selector: 'app-compt-form',
@@ -20,6 +19,16 @@ export class ComptFormComponent implements OnInit {
   uri_photo: string;
 
   @Output() comptAdded = new EventEmitter<Compt>();
+
+  changeImage(e): void {
+    const reader = new FileReader();
+
+    reader.onload = loadedFile => {
+      const data = loadedFile.target.result;
+      this.uri_photo = data
+    };
+    reader.readAsDataURL(e.target.files[0]);
+  }
 
   constructor() { }
 

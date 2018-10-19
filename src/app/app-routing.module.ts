@@ -12,7 +12,8 @@ const routes: Routes = [
   { path: 'painel', component: ComptListComponent },
   { path: 'search', component: ComptSearchComponent },
   { path: 'new', component: ComptFormComponent },
-  { path: 'detail/:brand', component: ComptComponent }
+  { path: 'detail/:id', component: ComptComponent },
+  { path: 'edit/:id', component: ComptFormComponent }
 ];
 
 @NgModule({

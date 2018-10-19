@@ -1,9 +1,69 @@
-<h3>Pesquisa</h3>
+<div class="container">
+<div class="card">
+    <div class="card-header">
+        <h4>Pesquisa</h4>
+    </div>
+    <div class="card-body">
+
 <form class="form-inline">
-    <input (change)="onSearch($event)" class="form-control mr-sm-2" type="search" placeholder="Pesquisa..." aria-label="Search">
-    <button class="btn btn-outline-primary" type="submit">Buscar</button>
+<div class="col-sm m-2">
+
+    <div class="row">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <input (change)="onSearch($event)" type="search" class="form-control" id="inputS" placeholder="Pesquisa..." aria-label="Search">
+            </div>
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="submit" id="inputS">Buscar</button>
+            </div>
+        </div>
+    </div>
+    <hr />
+
+
+    <div class="row">
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customR7" name="customRadio1" class="custom-control-input" value="id">
+            <label class="custom-control-label" for="customR7">Id</label>
+        </div>
+
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customR1" name="customRadio1" class="custom-control-input" value="brand">
+            <label class="custom-control-label" for="customR1">Marca</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customR2" name="customRadio1" class="custom-control-input" value="model">
+            <label class="custom-control-label" for="customR2">Modelo</label>
+        </div>
+
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customR3" name="customRadio1" class="custom-control-input" value="motherboard">
+            <label class="custom-control-label" for="customR3">Placa-mae</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customR4" name="customRadio1" class="custom-control-input" value="processor">
+            <label class="custom-control-label" for="customR4">Processador</label>
+        </div>
+
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customR5" name="customRadio1" class="custom-control-input" value="memoryram">
+            <label class="custom-control-label" for="customR5">Memoria-ram</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customR6" name="customRadio1" class="custom-control-input" value="harddisck">
+            <label class="custom-control-label" for="customR6">Disco-rigido</label>
+        </div>
+    </div>
+
+</div>
 </form>
+</div>
+
 <br>
+
+
 
 <div class="jumbotron" *ngIf="searchString">
     <div *ngFor="let compt of filteredCompts">
@@ -20,4 +80,6 @@
         <p>...</p>
         <hr />
     </div>
+</div> 
+
 </div>

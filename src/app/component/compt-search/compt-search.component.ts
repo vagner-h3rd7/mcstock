@@ -23,7 +23,20 @@ export class ComptSearchComponent implements OnInit {
     this.compts = this.dataService.getCompt();
 
     this.searchString = e.target.value;
-    const searchType = 'brand';
+    
+      /*
+      for(var customradios:HTMLElement =document.getElementsByName("customRadio1"),i=0;i<customradios.length;i++)if(customradios[i].checked)
+      if("brand"==customradios[i].value){var searchType="brand";alert("Marca")}
+      else if("model"==customradios[i].value){var searchType="model";alert("Modelo")}
+      else if("motherboard"==customradios[i].value){var searchType="motherboard";alert("P-Mae")}
+      else if("processor"==customradios[i].value){var searchType="processor";alert("Proc")}
+      else if("memoryram"==customradios[i].value){var searchType="memory_ram";alert("M-RAM")}
+      else if("harddisck"==customradios[i].value){var searchType="hard_disck";alert("HD")}
+      else if("id"==customradios[i].value){var searchType="id";alert("Id")}
+      */
+
+     const searchType = "brand";
+
 
     this.filteredCompts = this.compts.filter(filteredCompt =>
       new RegExp(this.searchString.toLocaleLowerCase())

@@ -1,12 +1,18 @@
 <div>
     <div class="card">
-        <div class="card-header">
+        <div class="card-header row">
+            <div class="col-sm">
             <h4>PC: {{ compt.brand | uppercase }} - {{ compt.model | uppercase }}</h4>
-            <div class="float-right">
-            <button href="" class="btn btn-info" (click)="compt.hide = !compt.hide">
+            </div>
+            <div class="col-sm">
+                <div class="float-right">
+            <button href="" class="btn btn-info" 
+            (click)="compt.hide = !compt.hide">
                 Detalhes
             </button>
         </div>
+        </div>
+
         </div>
         <div class="card-body" [hidden]="compt.hide">
             <div><strong>
@@ -17,6 +23,9 @@
                 <p>Foto: </p></strong> <img style="width: 150px; height: 150px;" src="{{ compt.uri_photo }}">
             </div>
             <div class="float-right">
+                <button href="" class="btn btn-warning text-white m-2" [routerLink]="['/edit', compt.id]">
+                 Editar
+                </button>
                 <button href="" class="btn btn-danger" (click)="removeCompt(compt)">
                  Deletar
                 </button>

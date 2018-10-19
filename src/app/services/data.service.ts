@@ -8,7 +8,7 @@ export class DataService {
   compts: Compt[];
 
   constructor() {
-    this.compts = [];
+    this.compts = COMPTS;
   }
 
   getCompt(): Compt[] {
@@ -37,5 +37,15 @@ export class DataService {
     }
     localStorage.setItem('compts', JSON.stringify(this.compts));
   }
+
+  getComptId(id: number) {
+    for (let i=0; i<this.compts.length; i++){
+      let compt = this.compts[i];
+      if (compt.id == id){
+        return compt;
+      }
+    }
+    return null;
+}
 
 }

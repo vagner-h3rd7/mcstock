@@ -18,12 +18,12 @@ export class ComptSearchComponent implements OnInit {
 
   ngOnInit() {
   }
-  
+
   onSearch(e, value): void {
     this.compts = this.dataService.getCompt();
 
     this.searchString = e.target.value;
-    
+
       /*
       for(var customradios:HTMLElement =document.getElementsByName("customRadio1"),i=0;i<customradios.length;i++)if(customradios[i].checked)
       if("brand"==customradios[i].value){var searchType="brand";alert("Marca")}
@@ -35,7 +35,7 @@ export class ComptSearchComponent implements OnInit {
       else if("id"==customradios[i].value){var searchType="id";alert("Id")}
       */
 
-     const searchType = "brand";
+     const searchType = 'brand';
 
 
     this.filteredCompts = this.compts.filter(filteredCompt =>

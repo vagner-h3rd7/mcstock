@@ -1,6 +1,7 @@
+<div  class="container">
 <div class="row">
     <div class="col-md-6 p-0">
-        <app-compt-form (comptAdded)="addCompt($event)"></app-compt-form>
+        <app-compt-form></app-compt-form>
     </div>
     <div class="col-md-6">
         <app-compt-search></app-compt-search>
@@ -9,4 +10,5 @@
     <div class="col-md-12 jumbotron bg-dark p-3">
         <app-compt class="col-md-6 p-2" *ngFor="let compt of compts" [compt]="compt"></app-compt>
     </div>
+</div>
 </div>

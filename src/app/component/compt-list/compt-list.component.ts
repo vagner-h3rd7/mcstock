@@ -17,8 +17,4 @@ export class ComptListComponent implements OnInit {
     this.compts = this.dataService.getCompt();
   }
 
-  addCompt(compt: Compt) {
-    this.dataService.addCompt(compt);
-  }
-
 }

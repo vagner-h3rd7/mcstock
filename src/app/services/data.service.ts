@@ -8,7 +8,7 @@ export class DataService {
   compts: Compt[];
 
   constructor() {
-    this.compts = COMPTS;
+    this.compts = [];
   }
 
   getCompt(): Compt[] {
@@ -23,9 +23,7 @@ export class DataService {
 
   addCompt(compt: Compt): void {
     this.compts.unshift(compt);
-   
       localStorage.setItem('compts', JSON.stringify(this.compts));
-
   }
 
   removeCompt(compt: Compt) {
@@ -39,9 +37,9 @@ export class DataService {
   }
 
   getComptId(id: number) {
-    for (let i=0; i<this.compts.length; i++){
+    for (let i = 0; i < this.compts.length; i++) {
       let compt = this.compts[i];
-      if (compt.id == id){
+      if (compt.id == id) {
         return compt;
       }
     }

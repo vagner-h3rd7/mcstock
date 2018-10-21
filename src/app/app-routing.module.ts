@@ -6,11 +6,13 @@ import { ComptComponent } from './component/compt/compt.component';
 import { ComptListComponent } from './component/compt-list/compt-list.component';
 import { ComptFormComponent } from './component/compt-form/compt-form.component';
 import { ComptSearchComponent } from './component/compt-search/compt-search.component';
+import { ComptTableComponent } from './component/compt-table/compt-table.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/painel', pathMatch: 'full' },
   { path: 'painel', component: ComptListComponent },
   { path: 'search', component: ComptSearchComponent },
+  { path: 'table', component: ComptTableComponent },
   { path: 'new', component: ComptFormComponent },
   { path: 'detail/:id', component: ComptComponent },
   { path: 'edit/:id', component: ComptFormComponent }

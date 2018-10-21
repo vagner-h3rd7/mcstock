@@ -1,0 +1,42 @@
+ <div class="container text-center">
+  <h3>compt-table works!</h3>
+  
+<table class="table table-sm table-bordered table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Marca</th>
+      <th scope="col">Modelo</th>
+      <th scope="col">Placa-Mãe</th>
+      <th scope="col">Processador</th>
+      <th scope="col">Memoria RAM</th>
+      <th scope="col">Disco Rigido</th>
+      <th scope="col">[------]</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let compt of compts">
+      <th scope="row" class="align-middle">
+        {{ compt.id }}</th>
+      <td class="align-middle">
+        {{ compt.brand }}</td>
+      <td class="align-middle">
+        {{ compt.model }}</td>
+      <td class="align-middle">
+        {{ compt.motherboard }}</td>
+      <td class="align-middle">
+        {{ compt.processor }}</td>
+      <td class="align-middle">
+        {{ compt.memory_ram }}</td>
+      <td class="align-middle">
+        {{ compt.hard_disck }}</td>
+      <td><button class="btn btn-warning btn-sm btn-block" 
+        [routerLink]="['/edit', compt.id]">
+        Editar
+       </button></td>
+    </tr>
+
+  </tbody>
+</table>
+
+</div>

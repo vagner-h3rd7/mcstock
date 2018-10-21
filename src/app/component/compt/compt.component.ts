@@ -9,7 +9,7 @@ import { DataService } from '../../services/data.service';
   styleUrls: ['./compt.component.css']
 })
 export class ComptComponent implements OnInit {
-  @Input('compt') compt: Compt;
+  @Input() compt: Compt;
 
   constructor(public dataService: DataService) { }
 
@@ -18,7 +18,7 @@ export class ComptComponent implements OnInit {
 
   removeCompt(compt: Compt) {
     const response = confirm('Tem certeza de que deseja excluir?');
-    
+
     if (response) {
       this.dataService.removeCompt(compt);
     }

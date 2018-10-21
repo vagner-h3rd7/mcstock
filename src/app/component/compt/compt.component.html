@@ -2,32 +2,67 @@
     <div class="card">
         <div class="card-header row">
             <div class="col-sm">
-            <h4>PC: {{ compt.brand | uppercase }} - {{ compt.model | uppercase }}</h4>
+                <h4><strong class="text-primary">PC: </strong> 
+                {{ compt.brand | uppercase }} - {{ compt.model | uppercase }}
+                </h4>
             </div>
             <div class="col-sm">
                 <div class="float-right">
-            <button href="" class="btn btn-info" 
-            (click)="compt.hide = !compt.hide">
-                Detalhes
-            </button>
-        </div>
-        </div>
+                    <button href="" class="btn btn-info" 
+                    (click)="compt.hide = !compt.hide">
+                        Detalhes
+                    </button>
+                </div>
+            </div>
 
         </div>
         <div class="card-body" [hidden]="compt.hide">
-            <div><strong>
-                <p>Id: {{ compt.id }}, Marca: {{ compt.brand }}, Modelo: {{ compt.model }}</p>
-                <p>Placa-Mãe: {{ compt.motherboard }}</p>
-                <p>Processador: {{ compt.processor }}</p>
-                <p>M-RAM: {{ compt.memory_ram }}, HD: {{ compt.hard_disck }}</p>
-                <p>Foto: </p></strong> <img style="width: 150px; height: 150px;" src="{{ compt.uri_photo }}">
+            <div class="row">
+                <div class="col-2">
+                    <strong>
+                        <p>Foto: </p>
+                    </strong>
+                    <img class="img-fluid rounded float-left" 
+                    src="{{ compt.uri_photo }}">
+                </div>
+                <div class="col">
+                        <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <th scope="row"> Id: </th><td>{{ compt.id }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"> Marca: </th><td>{{ compt.brand }}</td>
+                            <tr>
+                            <tr>
+                                <th scope="row"> Modelo: </th><td>{{ compt.model }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"> HD: </th><td>{{ compt.hard_disck }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"> Placa-Mãe: </th><td class="col-3">{{ compt.motherboard }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"> Processador: </th><td>{{ compt.processor }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"> M-RAM: </th><td>{{ compt.memory_ram }}</td>
+                            </tr>
+                        </tbody>
+                        </table>
+                </div>
+
             </div>
             <div class="float-right">
-                <button href="" class="btn btn-warning text-white m-2" [routerLink]="['/edit', compt.id]">
-                 Editar
+               
+                <button href="" class="btn btn-warning text-white m-2" 
+                [routerLink]="['/edit', compt.id]">
+                    Editar
                 </button>
-                <button href="" class="btn btn-danger" (click)="removeCompt(compt)">
-                 Deletar
+                <button href="" class="btn btn-danger" 
+                (click)="removeCompt(compt)">
+                    Deletar
                 </button>
             </div>
         </div>

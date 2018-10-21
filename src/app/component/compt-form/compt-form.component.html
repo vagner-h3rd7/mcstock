@@ -6,7 +6,7 @@
         </div>
         <div class="card-body">
 
-            <form [formGroup]="forml" (ngSubmit)="addCompt()">
+            <form [formGroup]="forml" (ngSubmit)="onSubmit()">
                 <div class="form-row">
                     <div>
                         <div class="form-row">
@@ -14,7 +14,7 @@
                                 <label for="uri_photo">
                                     Foto:
                                     <input id="uri_photo" style="display: none;" 
-                                    type="file" (change)="changeImage($event.value)"/>
+                                    type="file" (change)="changeImage($event)"/>
                                     <img type="file" style="width: 150px; height: 150px;"
                                     formControlName="uri_photo" class="img-thumbnail rounded float-left"
                                         src="{{ uri_photo }}">
@@ -83,7 +83,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary m-2">Salvar</button>
-                <button type="submit" class="btn"(click)="resetForm()">Cancelar</button>
+                <button class="btn btn-secondary" (click)="resetForm()">Cancelar</button>
             </form>
 
         </div>

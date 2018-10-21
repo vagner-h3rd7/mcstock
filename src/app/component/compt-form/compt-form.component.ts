@@ -14,26 +14,24 @@ import { Subscription } from 'rxjs';
 })
 export class ComptFormComponent implements OnInit {
 
-  @Output() comptAdded = new EventEmitter<Compt>();
-
   subsc: Subscription;
 
   compts: any;
-  compt: Compt; 
+  compt: Compt;
   forml: FormGroup;
- 
 
-  uri_photo: string = '';
+  uri_photo = 'src\\assets\\img\\default_img.jpg';
 
   changeImage(e): void {
     const reader = new FileReader();
 
     reader.onload = loadedFile => {
       const data = loadedFile.target.result;
-      this.uri_photo = data
-    };
+      this.uri_photo = data;
+    }
     reader.readAsDataURL(e.target.files[0]);
   }
+
 
   constructor(
     private formBuilder: FormBuilder,
@@ -43,39 +41,39 @@ export class ComptFormComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.subsc = this.route.params.subscribe(
-      (params: any) => {
-        let id = params['id'];
-
-        this.compts = this.dataService.getComptId(id);
-        this.forml = this.compts.value;
-      }
-    );
-
     this.forml = this.formBuilder.group({
-      id: [null, [Validators.required]],
+      id: [null],
       brand: [null],
       model: [null],
       motherboard: [null],
       processor: [null],
       memory_ram: [null],
-      hard_disck: [null],
-      uri_photo: [this.uri_photo],
+      hard_disck: [null] ,
+      uri_photo: [null],
       hide: true
     });
 
+    this.subsc = this.route.params.subscribe(
+      (params: any) => {
+        let id = params['id']
+        this.compts = this.dataService.getComptId(id);
+        this.forml.patchValue(this.compts);
+        this.uri_photo = this.compts.uri_photo;
+      });
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.subsc.unsubscribe();
   }
 
-  addCompt() {
+  onSubmit() {
     this.compt = this.forml.value;
-    this.comptAdded.emit(this.compt);
+    this.compt.uri_photo = this.uri_photo;
+    this.dataService.addCompt(this.compt)
+    alert ('Computador adicionado');
   }
 
-  resetForm(){
+  resetForm() {
     this.forml.reset();
   }
 

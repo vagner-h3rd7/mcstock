@@ -1,85 +1,53 @@
 <div class="container">
-<div class="card">
+    <div class="card">
     <div class="card-header">
         <h4>Pesquisa</h4>
     </div>
     <div class="card-body">
 
-<div class="">
-
-<div class="float-right">
-    <div class="row m-2">
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <input (change)="onSearch($event)" type="search" class="form-control" id="inputS" placeholder="Pesquisa..." aria-label="Search">
-            </div>
-            <div class="input-group-append">
-                <button class="btn btn-primary" type="submit" id="inputS">Buscar</button>
-            </div>
+    <div class="float-right">
+        <div>
+            <div class="input-group mb-3 p-1">
+                <select class="custom-select col-sm-3" 
+                    placeholder="filtro"
+                    id="inputS" [(ngModel)]="searchType">
+                    <option value="brand" 
+                    selected="selected">Marca</option>
+                    <option *ngFor="let option of options" 
+                    [value]='option.type'>{{ option.text }}</option>
+                </select>
+                <input type="search" class="form-control" 
+                id="inputS" placeholder="Pesquisa..." (change)="onSearch($event)">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-primary" 
+                    type="submit" id="inputS">Buscar</button>
+                </div>
+            </div>  
         </div>
     </div>
-
-    <div class="row">
-        <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="customR7" name="customRadio1" class="custom-control-input" value="id">
-            <label class="custom-control-label" for="customR7">Id</label>
-        </div>
-
-        <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="customR1" name="customRadio1" class="custom-control-input" value="brand">
-            <label class="custom-control-label" for="customR1">Marca</label>
-        </div>
-        <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="customR2" name="customRadio1" class="custom-control-input" value="model">
-            <label class="custom-control-label" for="customR2">Modelo</label>
-        </div>
-
-        <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="customR3" name="customRadio1" class="custom-control-input" value="motherboard">
-            <label class="custom-control-label" for="customR3">Placa-mae</label>
-        </div>
+    
     </div>
-    <div class="row">
-        <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="customR4" name="customRadio1" class="custom-control-input" value="processor">
-            <label class="custom-control-label" for="customR4">Processador</label>
-        </div>
-
-        <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="customR5" name="customRadio1" class="custom-control-input" value="memoryram">
-            <label class="custom-control-label" for="customR5">Memoria-ram</label>
-        </div>
-        <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="customR6" name="customRadio1" class="custom-control-input" value="harddisck">
-            <label class="custom-control-label" for="customR6">Disco-rigido</label>
-        </div>
-    </div>
+    
+    <br>
     <hr>
-    </div>
-
-</div>
-
-</div>
-
-<br>
-
-
-
-<div class="jumbotron" *ngIf="searchString">
-    <div *ngFor="let compt of filteredCompts">
-        <div class="row">
-        <div class="col-2">
-            <img class="img-fluid rounded float-left" src="{{ compt.uri_photo }}">
+    
+    <div class="jumbotron" *ngIf="searchString">
+        <div *ngFor="let compt of filteredCompts">
+            <div class="row">
+            <div class="col-2">
+                <img class="img-fluid rounded float-left" src="{{ compt.uri_photo }}">
+            </div>
+            <div class="col">
+                <p>Id: {{ compt.id }}, Marca: {{ compt.brand }}, Modelo: {{ compt.model }} <br />
+                 Placa-Mãe: {{ compt.motherboard }}<br />
+                 Processador: {{ compt.processor }}, M-RAM: {{ compt.memory_ram }}, HD: {{ compt.hard_disck }}</p>
+                 <button class="btn btn-sm " [routerLink]="['/edit', compt.id]">Editar</button>
+            </div>
         </div>
-        <div class="col">
-            <p>Id: {{ compt.id }}, Marca: {{ compt.brand }}, Modelo: {{ compt.model }} <br />
-             Placa-Mãe: {{ compt.motherboard }}<br />
-             Processador: {{ compt.processor }}, M-RAM: {{ compt.memory_ram }}, HD: {{ compt.hard_disck }}</p>
+            <p>...</p>
+            <hr />
         </div>
     </div>
-        <p>...</p>
-        <hr />
+    
     </div>
-</div> 
-
-</div>
+    

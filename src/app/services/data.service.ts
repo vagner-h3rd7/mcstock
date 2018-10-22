@@ -26,7 +26,7 @@ export class DataService {
   addCompt(compt: Compt): void {
     const currentComptIndex = this.compts.findIndex(innerCompt => innerCompt.id === compt.id);
 
-    if(currentComptIndex > -1) {
+    if (currentComptIndex > -1) {
       this.compts[currentComptIndex] = compt;
     } else {
       this.compts.unshift({...compt, id: uuidv1() });
@@ -47,7 +47,7 @@ export class DataService {
 
   getComptId(id: string) {
     for (let i = 0; i < this.compts.length; i++) {
-      let compt = this.compts[i];
+      const compt = this.compts[i];
       if (compt.id == id) {
         return compt;
       }

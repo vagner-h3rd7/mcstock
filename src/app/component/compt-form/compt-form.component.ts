@@ -27,7 +27,7 @@ export class ComptFormComponent implements OnInit {
     reader.onload = loadedFile => {
       const data = loadedFile.target.result;
       this.uri_photo = data;
-    }
+    };
     reader.readAsDataURL(e.target.files[0]);
   }
 

@@ -14,7 +14,7 @@ export class ComptSearchComponent implements OnInit {
   filteredCompts: Compt[];
   searchString: string;
   options: any;
-  searchType: string = 'brand';
+  searchType = 'brand';
 
   constructor(public dataService: DataService) {
     this.options = [
@@ -42,7 +42,7 @@ export class ComptSearchComponent implements OnInit {
         type: 'id',
         text: 'Id'
       }
-    ]
+    ];
   }
 
   ngOnInit() {
@@ -56,7 +56,6 @@ export class ComptSearchComponent implements OnInit {
     this.filteredCompts = this.compts.filter(filteredCompt =>
       new RegExp(this.searchString.toLocaleLowerCase())
         .test(filteredCompt[this.searchType].toLocaleLowerCase())
-        ,console.log(this.searchType)
     );
   }
 

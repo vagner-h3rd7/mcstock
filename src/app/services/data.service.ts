@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import uuidv1 from 'uuid/v1';
 
 import { Compt } from '../models/compt';
 import { COMPTS } from '../models/e-compts';
@@ -8,7 +9,7 @@ export class DataService {
   compts: Compt[];
 
   constructor() {
-    this.compts = [];
+    this.compts = this.getCompt();
   }
 
   getCompt(): Compt[] {
@@ -18,12 +19,20 @@ export class DataService {
     } else {
       this.compts = JSON.parse(localStorage.getItem('compts'));
     }
-    return this.compts;
+
+    return this.compts || [];
   }
 
   addCompt(compt: Compt): void {
-    this.compts.unshift(compt);
-      localStorage.setItem('compts', JSON.stringify(this.compts));
+    const currentComptIndex = this.compts.findIndex(innerCompt => innerCompt.id === compt.id);
+
+    if(currentComptIndex > -1) {
+      this.compts[currentComptIndex] = compt;
+    } else {
+      this.compts.unshift({...compt, id: uuidv1() });
+    }
+
+    localStorage.setItem('compts', JSON.stringify(this.compts));
   }
 
   removeCompt(compt: Compt) {
@@ -36,7 +45,7 @@ export class DataService {
     localStorage.setItem('compts', JSON.stringify(this.compts));
   }
 
-  getComptId(id: number) {
+  getComptId(id: string) {
     for (let i = 0; i < this.compts.length; i++) {
       let compt = this.compts[i];
       if (compt.id == id) {

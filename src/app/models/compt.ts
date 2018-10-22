@@ -1,5 +1,5 @@
 export interface Compt {
-    id: number;
+    id: string;
     brand: string;
     model: string;
     motherboard: string;

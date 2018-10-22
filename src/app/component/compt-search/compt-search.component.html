@@ -17,7 +17,7 @@
                     [value]='option.type'>{{ option.text }}</option>
                 </select>
                 <input type="search" class="form-control" 
-                id="inputS" placeholder="Pesquisa..." (change)="onSearch($event)">
+                id="inputS" placeholder="Pesquisa..." (change)="onSearch($event, searchType)">
                 <div class="input-group-append">
                     <button class="btn btn-outline-primary" 
                     type="submit" id="inputS">Buscar</button>

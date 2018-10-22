@@ -48,7 +48,7 @@ export class ComptSearchComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSearch(e, value, searchType): void {
+  onSearch(e, searchType): void {
     this.compts = this.dataService.getCompt();
 
     this.searchString = e.target.value;

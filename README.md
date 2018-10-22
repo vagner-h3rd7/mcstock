@@ -1,4 +1,23 @@
-# Mcstock
+# MCSTOCK
+
+ **Projeto MCSTOCK**
+Sistema de Administração de Computadores
+Gerado com o Angular CLI versão 6.2.4.
+
+## Para este projeto foi utilizado
+
+ - **Visual Studio Code** – *Editor de código Open Source da Microsoft*
+ - **Angular v6** – *Plataforma / Framework de desenvolvimento de aplicativos*
+ - **Bootstrap v4.1** – *Framework Front-end*
+
+## Tela principal do aplicativo
+
+ ![tela do aplicativo](layoutPainel.png)
+
+**GitHub:** [vagner-h3rd7](https://github.com/vagner-h3rd7) 
+
+...
+-----
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.4.
 

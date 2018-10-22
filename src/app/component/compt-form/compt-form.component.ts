@@ -1,10 +1,9 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 import { Compt } from '../../models/compt';
 import { DataService } from './../../services/data.service';
-import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -32,12 +31,11 @@ export class ComptFormComponent implements OnInit {
     reader.readAsDataURL(e.target.files[0]);
   }
 
-
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    public dataService: DataService,
-    private location: Location
+    private router: Router,
+    private dataService: DataService
     ) { }
 
   ngOnInit() {
@@ -55,7 +53,7 @@ export class ComptFormComponent implements OnInit {
 
     this.subsc = this.route.params.subscribe(
       (params: any) => {
-        let id = params['id']
+        const id = params['id'];
         this.compts = this.dataService.getComptId(id);
         this.forml.patchValue(this.compts);
         this.uri_photo = this.compts.uri_photo;
@@ -69,12 +67,11 @@ export class ComptFormComponent implements OnInit {
   onSubmit() {
     this.compt = this.forml.value;
     this.compt.uri_photo = this.uri_photo;
-    this.dataService.addCompt(this.compt)
-    alert ('Computador adicionado');
+    this.dataService.addCompt(this.compt);
+    this.router.navigate(['/']);
   }
 
   resetForm() {
     this.forml.reset();
   }
-
 }

@@ -27,7 +27,7 @@ export class ComptFormComponent implements OnInit {
     reader.onload = loadedFile => {
       const data = loadedFile.target.result;
       this.uri_photo = data;
-    }
+    };
     reader.readAsDataURL(e.target.files[0]);
   }
 
@@ -53,11 +53,16 @@ export class ComptFormComponent implements OnInit {
 
     this.subsc = this.route.params.subscribe(
       (params: any) => {
-        const id = params['id'];
+          var url = window.location.href;
+          const t = '/edit';
+          const id = params['id'];
         this.compts = this.dataService.getComptId(id);
-        this.forml.patchValue(this.compts);
-        this.uri_photo = this.compts.uri_photo;
+          if (url.indexOf(t) != -1) {
+          this.forml.patchValue(this.compts);
+          this.uri_photo = this.compts.uri_photo;
+          }
       });
+
   }
 
   ngOnDestroy() {

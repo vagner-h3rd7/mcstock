@@ -14,6 +14,8 @@ import { DataService } from './services/data.service';
 import { ComptSearchComponent } from './component/compt-search/compt-search.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ComptTableComponent } from './component/compt-table/compt-table.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { FooterComponent } from './component/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { ComptTableComponent } from './component/compt-table/compt-table.compone
     ComptFormComponent,
     ComptListComponent,
     ComptSearchComponent,
-    ComptTableComponent
+    ComptTableComponent,
+    NotFoundComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
